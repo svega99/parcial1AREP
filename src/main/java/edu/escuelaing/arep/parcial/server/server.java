@@ -75,7 +75,7 @@ public class server {
                 + "</body>"
                 + "</html>";
         
-        return null;
+        return pageContent;
     }
     
     
