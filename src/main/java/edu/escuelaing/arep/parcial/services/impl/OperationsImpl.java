@@ -28,6 +28,17 @@ public class OperationsImpl implements Operations{
          }
         return finall;
     }
+    
+    
+    @Override
+    public Integer sumatoria(List<Integer> lista) {
+        int con =0;
+        for (Integer i:lista){
+            con+=i;
+        }
+        return con;
+    }
+    
     public static void mergeSort(int[] a, int n) {
         if (n < 2) {
             return;
@@ -67,4 +78,6 @@ public class OperationsImpl implements Operations{
             a[k++] = r[j++];
         }
     }
+
+   
 }

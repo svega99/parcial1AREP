@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface Operations {
     public List<Integer> mergeSort(List <Integer> lista);
+    public Integer sumatoria(List <Integer> lista);
 }

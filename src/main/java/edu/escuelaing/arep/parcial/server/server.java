@@ -69,10 +69,11 @@ public class server {
         
         Operations op = new OperationsImpl();
         List<Integer> ordenada = op.mergeSort(lista);
-        
+        Integer n = op.sumatoria(lista);
 
         JSONObject myObject = new JSONObject();
         myObject.put("SortList", ordenada);
+        myObject.put("Sum", n);
         
         pageContent
                 = "<!DOCTYPE html>"
