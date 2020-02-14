@@ -7,10 +7,11 @@ package edu.escuelaing.arep.parcial.services;
 
 import java.util.List;
 
+
 /**
  *
  * @author santiago.vega-r
  */
 public interface Operations {
-    public List<Object> mergeSort(List <Object> lista);
+    public List<Integer> mergeSort(List <Integer> lista);
 }

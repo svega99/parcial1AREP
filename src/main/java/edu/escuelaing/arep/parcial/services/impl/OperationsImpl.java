@@ -6,6 +6,7 @@
 package edu.escuelaing.arep.parcial.services.impl;
 
 import edu.escuelaing.arep.parcial.services.Operations;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,8 +15,56 @@ import java.util.List;
  */
 public class OperationsImpl implements Operations{
     @Override
-    public List<Object> mergeSort(List<Object> lista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Integer> mergeSort(List<Integer> lista) {
+        int[] lista2 = new int[lista.size()];
+        for (int i = 0; i < lista2.length; i++) {
+            lista2[i] = lista.get(i);
+        }
+        mergeSort(lista2,lista2.length);
+        List<Integer> finall= new ArrayList<>();
+         for (int i: lista2){
+           
+                finall.add(i);
+         }
+        return finall;
+    }
+    public static void mergeSort(int[] a, int n) {
+        if (n < 2) {
+            return;
+        }
+        int mid = n / 2;
+        int[] l = new int[mid];
+        int[] r = new int[n - mid];
+
+        for (int i = 0; i < mid; i++) {
+            l[i] = a[i];
+        }
+        for (int i = mid; i < n; i++) {
+            r[i - mid] = a[i];
+        }
+        mergeSort(l, mid);
+        mergeSort(r, n - mid);
+         merge(a, l, r, mid, n - mid);
+        
     }
     
+    public static void merge(
+  int[] a, int[] l, int[] r, int left, int right) {
+  
+        int i = 0, j = 0, k = 0;
+        while (i < left && j < right) {
+            if (l[i] <= r[j]) {
+                a[k++] = l[i++];
+            }
+            else {
+                a[k++] = r[j++];
+            }
+        }
+        while (i < left) {
+            a[k++] = l[i++];
+        }
+        while (j < right) {
+            a[k++] = r[j++];
+        }
+    }
 }

@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package edu.escuelaing.arep.parcial.server;
+import edu.escuelaing.arep.parcial.services.Operations;
+import edu.escuelaing.arep.parcial.services.impl.OperationsImpl;
+import java.util.ArrayList;
+import java.util.List;
 import spark.*;
 import static spark.Spark.*;
 /**
@@ -26,9 +30,9 @@ public class server {
                 = "<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                + "<h2>Mean and Standard Deviation Calculation</h2>"
+                + "<h2>Parcial 1</h2>"
                 + "<form action=\"/results\">"
-                + "  Enter n numbers separated by commas <br>"
+                + "  Ingrese n numeros separados por comas<br>"
                 + "  <input type=\"text\" name=\"numbers\" >"
                 + "  <br><br>"
                 + "  <input type=\"submit\" value=\"Submit\">"
@@ -40,14 +44,13 @@ public class server {
     }
 
     private static String resultsPage(Request req, Response res) {
-        /*
-        LinkedList<Double> listaLink=new LinkedList<Double>();
+        List<Integer> lista=new ArrayList<>();
         String[] listaNormal= req.queryParams("numbers").split(",");
         String pageContent;
         
         for (String i: listaNormal){
             try {
-                listaLink.add(Double.parseDouble(i));
+                lista.add(Integer.parseInt(i));
             }
             catch (NumberFormatException n){
                 pageContent
@@ -60,19 +63,18 @@ public class server {
             }
       
         }
-        
-        Double mean = Calculator.getMean(listaLink);
-        Double stDev = Calculator.getStandardDeviation(listaLink);
+        Operations op = new OperationsImpl();
+        List<Integer> ordenada = op.mergeSort(lista);
+
         
         pageContent
                 = "<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                + "<h3>Mean: "+mean+"</h3>"
-                + "<h3>Standard Deviation: "+stDev+"</h3>"
+                + "<h3>Mean: "+ordenada.toString()+"</h3>"
                 + "</body>"
                 + "</html>";
-        */
+        
         return null;
     }
     
