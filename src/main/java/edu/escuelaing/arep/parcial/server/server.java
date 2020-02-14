@@ -45,7 +45,7 @@ public class server {
         return pageContent;
     }
 
-    private static String resultsPage(Request req, Response res) {
+    private static JSONObject resultsPage(Request req, Response res) {
         List<Integer> lista=new ArrayList<>();
         String[] listaNormal= req.queryParams("numbers").split(",");
         String pageContent;
@@ -82,7 +82,7 @@ public class server {
                 + "</body>"
                 + "</html>";
         
-        return pageContent;
+        return myObject;
     }
     
     
