@@ -75,14 +75,6 @@ public class server {
         myObject.put("SortList", ordenada);
         myObject.put("Sum", n);
         
-        pageContent
-                = "<!DOCTYPE html>"
-                + "<html>"
-                + "<body>"
-                + myObject
-                + "</body>"
-                + "</html>";
-        
         return myObject;
     }
     
