@@ -72,7 +72,7 @@ public class server {
         
 
         JSONObject myObject = new JSONObject();
-        myObject.put("number_list", ordenada);
+        myObject.put("SortList", ordenada);
         
         pageContent
                 = "<!DOCTYPE html>"
