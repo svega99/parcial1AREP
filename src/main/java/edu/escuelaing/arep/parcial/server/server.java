@@ -65,7 +65,7 @@ public class server {
             }
       
         }
-        
+        res.header("Content-Type","application/json");
         
         Operations op = new OperationsImpl();
         List<Integer> ordenada = op.mergeSort(lista);
