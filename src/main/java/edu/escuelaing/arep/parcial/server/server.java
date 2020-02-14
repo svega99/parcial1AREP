@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import spark.*;
 import static spark.Spark.*;
+import org.json.*;
+
 /**
  *
  * @author santiago.vega-r
@@ -63,15 +65,20 @@ public class server {
             }
       
         }
+        
+        
         Operations op = new OperationsImpl();
         List<Integer> ordenada = op.mergeSort(lista);
+        
 
+        JSONObject myObject = new JSONObject();
+        myObject.put("number_list", ordenada);
         
         pageContent
                 = "<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                + "<h3>Mean: "+ordenada.toString()+"</h3>"
+                + "<h3>"+myObject+"</h3>"
                 + "</body>"
                 + "</html>";
         
