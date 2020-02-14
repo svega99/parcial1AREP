@@ -78,7 +78,7 @@ public class server {
                 = "<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                + "<h3>"+myObject+"</h3>"
+                + myObject
                 + "</body>"
                 + "</html>";
         
