@@ -14,6 +14,8 @@ import org.json.*;
 
 /**
  *
+ * Servidor que devuelve JSON con una lista ordenada y su sumatoria
+ *
  * @author santiago.vega-r
  */
 public class server {
@@ -26,7 +28,12 @@ public class server {
         get("/results", (req, res) -> resultsPage(req, res));
    
     }
-    
+    /**
+     * Pagina de input 
+     * @param req Request de la página
+     * @param res Response de la página
+     * @return HTML con la pagina 
+     */
      private static String inputDataPage(Request req, Response res) {
         String pageContent
                 = "<!DOCTYPE html>"
@@ -44,25 +51,21 @@ public class server {
                 + "</html>";
         return pageContent;
     }
-
+     /**
+      * Función que devuelve el objeto JSON  
+      * 
+      * @param req Request de la página
+      * @param res Response de la página
+      * @return 
+      */
     private static JSONObject resultsPage(Request req, Response res) {
         List<Integer> lista=new ArrayList<>();
         String[] listaNormal= req.queryParams("numbers").split(",");
-        String pageContent;
+      
         
         for (String i: listaNormal){
-            try {
-                lista.add(Integer.parseInt(i));
-            }
-            catch (NumberFormatException n){
-                pageContent
-                = "<!DOCTYPE html>"
-                + "<html>"
-                + "<body>"
-                + "<h2>Format Incorrect</h2>"
-                + "</body>"
-                + "</html>";
-            }
+           
+             lista.add(Integer.parseInt(i));
       
         }
         res.header("Content-Type","application/json");
@@ -78,7 +81,10 @@ public class server {
         return myObject;
     }
     
-    
+    /**
+     * Devuelve el puerto 
+     * @return el puerto
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));

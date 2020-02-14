@@ -10,6 +10,8 @@ import java.net.*;
 import java.util.*;
 /**
  *
+ *	Cliente que prueba el servicio imprimiendo el JSON 
+ *
  * @author santiago.vega-r
  */
 public class Client {
@@ -17,9 +19,7 @@ public class Client {
     
     
     public static void main(String[] args) throws IOException {
-		
-		Socket echoSocket = null;
-		PrintWriter out = null;
+
 		BufferedReader in = null;
 		
 		List<Integer>  numeros =new ArrayList<>();
@@ -48,6 +48,8 @@ public class Client {
 		while ((line = in.readLine()) != null) { 
 			System.out.println(line); 
 		}
+		
+		
 		
 		in.close();
 		stdIn.close();

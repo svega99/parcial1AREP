@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *Implementacion de la interfaz de operaciones 
  * @author santiago.vega-r
  */
 public class OperationsImpl implements Operations{
+	
     @Override
     public List<Integer> mergeSort(List<Integer> lista) {
         int[] lista2 = new int[lista.size()];
@@ -39,7 +40,7 @@ public class OperationsImpl implements Operations{
         return con;
     }
     
-    public static void mergeSort(int[] a, int n) {
+    private static void mergeSort(int[] a, int n) {
         if (n < 2) {
             return;
         }
@@ -59,8 +60,7 @@ public class OperationsImpl implements Operations{
         
     }
     
-    public static void merge(
-  int[] a, int[] l, int[] r, int left, int right) {
+    private static void merge( int[] a, int[] l, int[] r, int left, int right) {
   
         int i = 0, j = 0, k = 0;
         while (i < left && j < right) {
